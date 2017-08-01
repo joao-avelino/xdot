@@ -1670,10 +1670,10 @@ class DotWidget(QWidget):
         return False
 
     def wheelEvent(self, event):
-        print(event.angleDelta())
-        if event.angleDelta() > 0:
+        delta = event.angleDelta().y()
+        if delta > 0:
             self.zoom_image(self.zoom_ratio * self.ZOOM_INCREMENT, pos=(event.x(), event.y()))
-        if event.angleDelta() < 0:
+        if delta < 0:
             self.zoom_image(self.zoom_ratio / self.ZOOM_INCREMENT,
                             pos=(event.x(), event.y()))
 
